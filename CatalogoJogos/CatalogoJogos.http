@@ -1,0 +1,22 @@
+@host = http://localhost:5062
+
+### 1) Login -> copie o token da resposta e cole em @token abaixo
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{ "username": "Mauricio", "password": "123456" }
+
+###
+@token = COLE_O_TOKEN_AQUI
+
+### Listar jogos
+GET {{host}}/api/jogos
+Authorization: Bearer {{token}}
+
+### Buscar por plataforma e preço máximo
+GET {{host}}/api/jogos/busca?plataforma=PlayStation 5&precoMaximo=280
+Authorization: Bearer {{token}}
+
+### Relatório de estoque
+GET {{host}}/api/jogos/relatorio-estoque
+Authorization: Bearer {{token}}
